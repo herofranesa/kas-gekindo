@@ -26,7 +26,7 @@ class Kas extends Model<KasAttributes, KasCreationAttributes> implements KasAttr
 Kas.init(
   {
     id: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
