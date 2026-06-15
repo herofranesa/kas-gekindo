@@ -1,4 +1,6 @@
 import { Sequelize } from "sequelize";
+import pg from "pg";
+import "pg-hstore";
 
 const isPooler = process.env.DB_POOLER === "true";
 
@@ -19,6 +21,7 @@ const basePool = {
 const sequelize = process.env.DATABASE_URL
   ? new Sequelize(process.env.DATABASE_URL, {
       dialect: "postgres",
+      dialectModule: pg,
       logging: false,
       dialectOptions: baseDialectOptions,
       pool: basePool,
@@ -31,6 +34,7 @@ const sequelize = process.env.DATABASE_URL
         host: process.env.DB_HOST || "localhost",
         port: parseInt(process.env.DB_PORT || (isPooler ? "6543" : "5432")),
         dialect: "postgres",
+        dialectModule: pg,
         logging: false,
         dialectOptions: baseDialectOptions,
         pool: basePool,
