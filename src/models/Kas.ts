@@ -51,6 +51,7 @@ Kas.init(
     sequelize,
     tableName: "kas",
     timestamps: true,
+    underscored: true,
   }
 );
 
